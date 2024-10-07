@@ -28,3 +28,6 @@ let g:netrw_liststyle = 3 " Tree view
 
 " remap vertical resize to something feasible
 command! -nargs=1 Vr vertical resize <args>
+
+" change default netrw window open size
+let g:netrw_winsize = 80
