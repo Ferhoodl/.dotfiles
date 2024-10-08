@@ -20,6 +20,7 @@ let g:netrw_banner = 0 " disable annowing banner at top
 let g:netrw_browse_split = 3 " 3 = opens new tabs in a new vim tab. 2 = split
 " screen on new tab, 4 = replace previous screen with new tab
 let g:netrw_liststyle = 3 " Tree view
+let g:netrw_altofile = 0 " Prevents vim from focusing on opened split file
 
 " Following are useful when trying to do mutliple windows/screen
 " let g:netrw_winsize = 80 " change default netrw window open size
@@ -38,3 +39,22 @@ noremap <leader>6 6gt
 noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
+
+" Function to customize netrw's behavior when opening files
+function! NetrwOpenBehavior()
+  " Get the number of windows in the current tab
+  let wincount = winnr('$')
+
+  " If there is only one window and it's netrw, open the file in a new tab
+  if wincount == 1  && &filetype == 'netrw'
+    let g:netrw_browse_split = 3 " Open in a new tab
+  " If there are two windows, open the file in the non-netrw split
+  elseif wincount == 2  && &filetype == 'netrw'
+    let g:netrw_browse_split = 4 " Open in the other split
+  else
+    let g:netrw_browse_split = 0 " Default behavior
+  endif
+endfunction
+
+" Autocommand to trigger Netrw behavior adjustment on file navigation
+autocmd FileType netrw call NetrwOpenBehavior()
