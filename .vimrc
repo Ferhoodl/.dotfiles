@@ -1,4 +1,4 @@
-let mapleader = '\' " leader for plugin and user-defined shortcuts. Don't want to conflict with i3, tmux, vim
+let mapleader = "'" "leader for plugin and user-defined shortcuts. Don't want to conflict with i3, tmux, vim
 
 " Set relative line numbers
 set relativenumber
