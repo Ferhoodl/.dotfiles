@@ -3,6 +3,9 @@ let mapleader = "'" "leader for plugin and user-defined shortcuts. Don't want to
 " Set relative line numbers
 set relativenumber
 
+" turn auto-indenting on
+set autoindent
+
 set nocompatible " Tell vim not to pretend to be vi
 
 syntax enable " Enable some syntax highlighting
@@ -49,7 +52,7 @@ function! NetrwOpenBehavior()
   if wincount == 1  && &filetype == 'netrw'
     let g:netrw_browse_split = 3 " Open in a new tab
   " If there are two windows, open the file in the non-netrw split
-  elseif wincount == 2  && &filetype == 'netrw'
+  elseif wincount > 2  && &filetype == 'netrw'
     let g:netrw_browse_split = 4 " Open in the other split
   else
     let g:netrw_browse_split = 0 " Default behavior
@@ -58,3 +61,33 @@ endfunction
 
 " Autocommand to trigger Netrw behavior adjustment on file navigation
 autocmd FileType netrw call NetrwOpenBehavior()
+
+" Write function to insert a code snippet based on input
+function! InsertSkeletonFile(filetype)
+    let skeleton_path = ''
+    " Define different skeletons based on the filetype passed in
+    if a:filetype ==# 'doc'
+        let skeleton_path = $HOME . '/.vim/.skeletons/.skeleton.html'
+    elseif a:filetype ==# 'css'
+        let skeleton_path = $HOME . '/.vim/skeletons/.skeleton.css'
+    elseif a:filetype ==# 'js'
+        let skeleton_path = $HOME . '/.vim/skeletons/.skeleton.js'
+    else
+        echo "Unknown skeleton type: " . a:filetype
+        return
+    endif
+
+    " Insert the skeleton file above the current line
+    execute ':-1read ' . skeleton_path
+    normal! 6jzzf>a
+endfunction
+
+set wrap
+
+set linebreak
+
+set breakindent
+
+" Map <leader>sk to call code above snippet function with input from this line
+nnoremap <leader>sk :call InsertSkeletonFile(input('Enter filetype:'))<CR>
+
