@@ -6,6 +6,11 @@ set relativenumber
 " turn auto-indenting on
 set autoindent
 
+" text wrapping options I don't understand. Still not working either:
+set wrap
+set linebreak
+set breakindent
+
 set nocompatible " Tell vim not to pretend to be vi
 
 syntax enable " Enable some syntax highlighting
@@ -82,12 +87,8 @@ function! InsertSkeletonFile(filetype)
     normal! 6jzzf>a
 endfunction
 
-set wrap
-
-set linebreak
-
-set breakindent
-
 " Map <leader>sk to call code above snippet function with input from this line
 nnoremap <leader>sk :call InsertSkeletonFile(input('Enter filetype:'))<CR>
 
+" Insert an ascii art when Vim is opened
+echo "( ͡~ ͜ʖ ͡°)"
