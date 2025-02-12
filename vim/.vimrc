@@ -27,6 +27,10 @@ set wrap
 set linebreak
 set breakindent
 
+set ignorecase " ignore case when searching
+set smartcase " respect case if search uses capital letter
+set incsearch
+
 set nocompatible " Tell vim not to pretend to be vi
 
 syntax enable " Enable some syntax highlighting
