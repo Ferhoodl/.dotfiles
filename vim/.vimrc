@@ -1,5 +1,7 @@
 let mapleader = "'" "leader for plugin and user-defined shortcuts. Don't want to conflict with i3, tmux, vim
 
+set tabstop=4 " make tabs appear as 4 spaces in vim (defualt is 8)
+
 " remap to open vimrc easily
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " open vertical splits to the right
