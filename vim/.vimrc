@@ -1,6 +1,17 @@
 let mapleader = "'" "leader for plugin and user-defined shortcuts. Don't want to conflict with i3, tmux, vim
 
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" remap to open vimrc easily
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" open vertical splits to the right
+set splitright 
+
+" remaps to make vertical movement easier
+nnoremap <c-d> <c-d>zz
+nnoremap <c-u> <c-u>zz
+
+" remaps to make searching easer on the eyes
+nnoremap n nzz
+nnoremap N Nzz
 
 " Set relative line numbers
 set relativenumber
@@ -34,8 +45,6 @@ let g:netrw_browse_split = 3 " 3 = opens new tabs in a new vim tab. 2 = split
 " screen on new tab, 4 = replace previous screen with new tab
 let g:netrw_liststyle = 3 " Tree view
 let g:netrw_altofile = 0 " Prevents vim from focusing on opened split file
-
-set splitright " open vertical splits to the right
 
 " Following are useful when trying to do mutliple windows/screen
 " let g:netrw_winsize = 80 " change default netrw window open size
