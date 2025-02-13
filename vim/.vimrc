@@ -2,12 +2,23 @@ let mapleader = "'" "leader for plugin and user-defined shortcuts. Don't want to
 
 set tabstop=4 " make tabs appear as 4 spaces in vim (defualt is 8)
 
+" Create horizontal splits below the current file
+set splitbelow
+
+" remap 'vertical resize' command to something easier 
+command! -nargs=1 Vr execute 'vertical resize' float2nr(&columns * <args> / 100)
+
+" remap 'resize' command to something easier
+command! -nargs=1 Hr execute 'resize' float2nr(&lines * <args> / 100)
+
 " remap to open vimrc easily
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " open the current file again in a split
-nnoremap <leader>et :vsplit <C-r>=expand('%')<CR><CR>
+nnoremap <leader>et :vsplit
 
+" open a terminal below all splits
+nnoremap <leader>term :term<cr><c-w>J<c-w>:Hr 25<cr>
 
 " open vertical splits to the right
 set splitright 
@@ -19,6 +30,10 @@ nnoremap <c-u> <c-u>zz
 " remaps to make searching easer on the eyes
 nnoremap n nzz
 nnoremap N Nzz
+
+" remaps to make scrolling better
+nnoremap j jzz
+nnoremap k kzz
 
 " Set relative line numbers
 set relativenumber
@@ -61,10 +76,6 @@ let g:netrw_altofile = 0 " Prevents vim from focusing on opened split file
 " Following are useful when trying to do mutliple windows/screen
 " let g:netrw_winsize = 80 " change default netrw window open size
 " let g:netrw_altv = 1 " open splits to the right 
-
-" remap 'vertical resize' command to something feasible
-command! -nargs=1 Vr execute 'vertical resize' float2nr(&columns * <args> / 100)
-
 
 " Go to tab by number
 nnoremap <leader>1 1gt
