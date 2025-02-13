@@ -4,6 +4,11 @@ set tabstop=4 " make tabs appear as 4 spaces in vim (defualt is 8)
 
 " remap to open vimrc easily
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" open the current file again in a split
+nnoremap <leader>et :vsplit <C-r>=expand('%')<CR><CR>
+
+
 " open vertical splits to the right
 set splitright 
 
@@ -31,6 +36,7 @@ set breakindent
 
 set ignorecase " ignore case when searching
 set smartcase " respect case if search uses capital letter
+
 set incsearch
 
 set nocompatible " Tell vim not to pretend to be vi
@@ -57,7 +63,8 @@ let g:netrw_altofile = 0 " Prevents vim from focusing on opened split file
 " let g:netrw_altv = 1 " open splits to the right 
 
 " remap 'vertical resize' command to something feasible
-command! -nargs=1 Vr vertical resize <args>
+command! -nargs=1 Vr execute 'vertical resize' float2nr(&columns * <args> / 100)
+
 
 " Go to tab by number
 nnoremap <leader>1 1gt
