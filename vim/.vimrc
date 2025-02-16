@@ -1,7 +1,12 @@
-let mapleader = "'" "leader for plugin and user-defined shortcuts. Don't want to conflict with i3, tmux, vim
+let mapleader = "'" "leader for plugin and user-defined shortcuts.
+" Don't want to conflict with i3, tmux, vim
 
 set tabstop=4 " make tabs appear as 4 spaces in vim (defualt is 8)
-  
+
+"set indicator for line length of 80
+set colorcolumn=80
+highlight ColorColumn ctermbg=lightgrey
+
 " Create horizontal splits below the current file
 "set splitbelow
   
@@ -61,9 +66,11 @@ syntax enable " Enable some syntax highlighting
   
 filetype plugin on " *look up what this does*
   
-set path+=** "search down into sub-folders when using ':find'. Provides tab-completion
+set path+=** "search down into sub-folders when using ':find'. Provides
+" tab-completion
   
-command! MakeTags !ctags -R . " Create the 'tags file (may need to install ctags first)
+command! MakeTags !ctags -R . " Create the 'tags file (may need to install
+" ctags first)
   
 set wildmenu " turn on menu for fuzzy file finding
   
