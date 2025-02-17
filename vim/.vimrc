@@ -1,11 +1,27 @@
 let mapleader = "'" "leader for plugin and user-defined shortcuts.
 " Don't want to conflict with i3, tmux, vim
 
-set tabstop=4 " make tabs appear as 4 spaces in vim (defualt is 8)
+set nocompatible " Tell vim not to pretend to be vi
+
+filetype on " Enables automatic filtype detection
+filetype plugin on " Loads file type-specific plugins which can add extra
+" functionality (syntax highlighting, formatitng, etc.)
+filetype indent on " Enables file-dependent indentation settings
+" (auto-indentation rules for c vs python)
+" 
+" " turn auto-indenting on
+" set autoindent
+" " text wrapping options I don't understand. Still not working either:
+" set wrap
+" set linebreak
+" set breakindent
+"  
+set tabstop=4 " make tabs appear as 4 spaces in vim (defualt is 8)testing
 
 "set indicator for line length of 80
-set colorcolumn=80
-highlight ColorColumn ctermbg=lightgrey
+"set colorcolumn=81
+highlight ColorColumn ctermbg=DarkRed
+call matchadd('ColorColumn', '\%81v', 100)
 
 " Create horizontal splits below the current file
 "set splitbelow
@@ -27,7 +43,11 @@ nnoremap <leader>term :term<cr><c-w>J<c-w>:Hr 25<cr>
 
 " open vertical splits to the right
 set splitright 
-  
+
+" open help windows to the right
+autocmd FileType help wincmd L
+ 
+
 " remaps to make vertical movement easier
 nnoremap <c-d> <c-d>zz
 nnoremap <c-u> <c-u>zz
@@ -41,26 +61,16 @@ nnoremap j jzz
 nnoremap k kzz
 
 nnoremap G Gzz
+
 " Set relative line numbers
 set relativenumber
- 
 " Show absolute line number on cursor's line
 set number
-  
-" turn auto-indenting on
-set autoindent
-  
-" text wrapping options I don't understand. Still not working either:
-set wrap
-set linebreak
-set breakindent
-  
+ 
 set ignorecase " ignore case when searching
 set smartcase " respect case if search uses capital letter
-
 set incsearch
   
-set nocompatible " Tell vim not to pretend to be vi
   
 syntax enable " Enable some syntax highlighting
   
@@ -69,9 +79,9 @@ filetype plugin on " *look up what this does*
 set path+=** "search down into sub-folders when using ':find'. Provides
 " tab-completion
   
-command! MakeTags !ctags -R . " Create the 'tags file (may need to install
-" ctags first)
-  
+command! MakeTags !ctags -R . " Create function to create 'tags file
+" (may need to install ctags first)
+
 set wildmenu " turn on menu for fuzzy file finding
   
 " Tweaks for Netrw browsing
