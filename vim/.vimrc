@@ -37,10 +37,10 @@ command! -nargs=1 Hr execute 'resize' float2nr(&lines * <args> / 100)
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
   
 " open the current file again in a split
-nnoremap <leader>et :vsplit
+nnoremap <leader>et :vsplit %<cr>
  
 " open a terminal below all splits
-nnoremap <leader>term :term<cr><c-w>J<c-w>:Hr 25<cr>
+nnoremap <leader>term :term<cr><c-w>J<c-w>:Hr 15<cr>
 
 " open vertical splits to the right
 set splitright 
