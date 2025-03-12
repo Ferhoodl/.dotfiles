@@ -24,6 +24,11 @@ set shiftwidth=4 " set shiftwidth set by auto-indenting things like plugins
 highlight ColorColumn ctermbg=DarkRed
 call matchadd('ColorColumn', '\%81v', 100)
 
+
+hi Visual cterm=reverse ctermbg=NONE ctermfg=NONE
+
+autocmd ColorScheme * hi Visual ctermbg=DarkGrey ctermfg=NONE
+
 " Create horizontal splits below the current file
 "set splitbelow
   
