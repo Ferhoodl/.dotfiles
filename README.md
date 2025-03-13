@@ -25,7 +25,7 @@ Windows key is mod.
 `<mod><shift>q` closes the current window.  
 `<mod><shift>(homerow number)` moves the current focused screen to the number's workspace.   
 ### Vim
-`'` is <leader>.  
+`'` is \<leader\>.  
 `<leader>ev` opens .vimrc in a split.  
 `<leader>et` opens current file in a split.  
 `<leader>term<CR>` opens a terminal under all open splits (finnicky).  
@@ -34,7 +34,7 @@ Windows key is mod.
 `<C-w>:Hr(number)` adjusts the current window to (number)% of the horizontal vim screen.  
 
 ### Tmux
-`<C-b>` is <leader>.  
+`<C-b>` is \<leader\>.  
 
 ##### Sessions
 ~$`tmux new -s (session name)<CR>` creates new tmux sesison.  
