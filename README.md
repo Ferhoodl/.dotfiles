@@ -71,3 +71,12 @@ Ex: `gcc main.c -o main -g`
 `nexti<CR>` goes to the next assembly instruction, walking over function calls.  
 `step<CR>` goes to the next assembly instruction, but steps down into function calls.  
 `stepi<CR>` goes the next assembly instruction, but steps down into function calls.  
+`b (function name)<CR>` puts a breakpoint at the program.  
+`b (function name)<CR>` puts a breakpoint at the beginning of (function name) function.  
+`b (line number<CR>` puts a breakpoint at the (line number) line.  
+`b<CR>` puts a breakpoint at the current line.  
+`d (number)<CR>` deletes breakpoint number (number).  
+`watch (variable name)<CR>` sets a watchpoint to (variable name).  
+`bt<CR>` prints the stack trace.  
+`f<CR>` runs until the function is finished.  
+
