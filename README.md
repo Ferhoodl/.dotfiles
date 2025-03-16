@@ -32,6 +32,8 @@ Windows key is mod.
 `<C-w>(h,j,k,l)` changes focus on vim panes.  
 `<C-w>:Vr(number 1 to 100)<CR>` adjusts the current window to (number)% of the vertical vim screen.  
 `<C-w>:Hr(number)` adjusts the current window to (number)% of the horizontal vim screen.  
+`<C-o>` to jump to previous ("old") location in jumplist.  
+`<C-i>` to jump to next location in jumplist.
 
 ### Tmux
 `<C-b>` is \<leader\>.  
