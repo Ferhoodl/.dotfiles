@@ -43,6 +43,12 @@ command! -nargs=1 Vr execute 'vertical resize' float2nr(&columns * <args> / 100)
 " remap 'resize' command to something easier
 command! -nargs=1 Hr execute 'resize' float2nr(&lines * <args> / 100)
   
+" show tabline in vim even if only one tab is open.
+set showtabline=2
+
+" open a new vim tab easily
+nnoremap <leader>tn :tabnew<cr>
+
 " remap to open vimrc easily
 nnoremap <leader>ev :tabnew $MYVIMRC<cr>
   
