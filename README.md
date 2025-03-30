@@ -27,13 +27,14 @@ Windows key is mod.
 ### Vim
 `'` is \<leader\>.  
 `<leader>ev` opens .vimrc in a split.  
-`<leader>et` opens current file in a split.  
-`<leader>term<CR>` opens a terminal under all open splits (finnicky).  
+`<leader>st` opens current file in a split ("split this").  
+`<leader>tn` opens a new vim tab.  
+`<leader>(number)` switches to vim tab (number).  
+`<C-o>` to jump to previous ("old") location in jumplist.  
+`<C-i>` to jump to next ("increment") location in jumplist.  
 `<C-w>(h,j,k,l)` changes focus on vim panes.  
 `<C-w>:Vr(number 1 to 100)<CR>` adjusts the current window to (number)% of the vertical vim screen.  
 `<C-w>:Hr(number)` adjusts the current window to (number)% of the horizontal vim screen.  
-`<C-o>` to jump to previous ("old") location in jumplist.  
-`<C-i>` to jump to next location in jumplist.
 
 ### Tmux
 `<C-b>` is \<leader\>.  
