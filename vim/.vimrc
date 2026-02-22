@@ -139,3 +139,53 @@ endfunction
   
 " Map <leader>sk to call code above snippet function with input from this line
 nnoremap <leader>sk :call InsertSkeletonFile(input('Enter filetype:'))<CR>
+
+" INSTALLING PLUGINS======================================
+" Start plugin block for vim-plug
+call plug#begin('~/.vim/plugged')
+
+" Add plugins here
+Plug 'lervag/vimtex'  " VimTeX plugin for LaTeX support
+
+" End plugin block for vim-plug
+call plug#end()
+
+" VIMTEX / ZATHURA SETTINGS ==================================
+" These are settings I got from various chatbots. Refine over time.
+
+" Use Zathura as the pdf viewer
+let g:vimtex_view_method = 'zathura'
+
+" Set the default LaTeX compiler (you can use latex, xelatex, or lualatex)
+let g:vimtex_compiler_method = 'latexmk'
+
+" Automatically start the LaTeX compilation process when saving
+let g:vimtex_compiler_latexmk = {
+	\ 'out_dir': 'build',
+    \ 'callback':   1,
+    \ 'continuous': 1,
+    \ 'options':   ['-pdf', '-interaction=nonstopmode', '-file-line-error'],
+    \}
+
+
+" \ 'options':   ['-pdf', '-interaction=nonstopmode', 'synctex=1', '-file-line-error'],
+
+" Auto-open viewer on first successful compilation (if not already open)
+let g:vimtex_view_automatic = 1   " default anyway, but explicit
+
+" Enable LaTeX syntax highlighting
+let g:vimtex_syntax_enabled = 1
+
+" Enable folding based on LaTeX sections
+" let g:vimtex_fold_enabled = 1
+
+" Enable quickfix for LaTeX warnings and errors
+let g:vimtex_quickfix_mode = 0 " Disable automatic quickfix on compilation
+
+" Enable auto-detection of file encoding (UTF-8 is recommended)
+let g:vimtex_filetypes = ['tex', 'bib']
+
+" Optional: Enable spell checking for LaTeX documents
+let g:vimtex_spell_enabled = 1
+
+" =============================================================
