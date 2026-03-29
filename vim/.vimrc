@@ -115,7 +115,10 @@ nnoremap <leader>6 6gt
 nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
- 
+
+"Remap < and > to move vim tabs around
+nnoremap < :tabmove -1<CR>
+nnoremap > :tabmove +1<CR>
  
 " Write function to insert a code snippet based on input
 function! InsertSkeletonFile(filetype)
@@ -161,12 +164,10 @@ let g:vimtex_compiler_method = 'latexmk'
 
 " Automatically start the LaTeX compilation process when saving
 let g:vimtex_compiler_latexmk = {
-	\ 'out_dir': 'build',
     \ 'callback':   1,
-    \ 'continuous': 1,
-    \ 'options':   ['-pdf', '-interaction=nonstopmode', '-file-line-error'],
+    \ 'continuous': 0,
+    \ 'options':   ['-interaction=nonstopmode', '-pdf', '-output-directory=build', '-shell-escape', '-file-line-error'],
     \}
-
 
 " \ 'options':   ['-pdf', '-interaction=nonstopmode', 'synctex=1', '-file-line-error'],
 
